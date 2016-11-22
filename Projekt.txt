@@ -1,7 +1,0 @@
-Program wspomagajacy decyzji kredytowych
-
-- przygotowanie pomocy dydaktychnych
-
-- stworzenie programu
-
-- testy 
