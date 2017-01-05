@@ -351,7 +351,7 @@ void showVectorVals(string label, vector<double> &v)
 int main()
 {
     generate();
-    TrainingData trainData("Data.txt");
+   /* TrainingData trainData("Data.txt");
 
     vector<unsigned> topology;
     trainData.getTopology(topology);
@@ -385,5 +385,5 @@ int main()
     }
 
     cout << endl << "Done" << endl;
-    system("pause");
+    system("pause");*/
 }

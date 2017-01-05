@@ -8,24 +8,16 @@ namespace Sieci_Projekt
 {
     class Warstwa
     {
-        Neuron[] neurony;
+        
+        public Neuron[] neurony;
 
-        public Warstwa(uint n)
+        public Warstwa(uint n , uint w)
         {
             neurony = new Neuron[n];
-            for(int i=0;i<n;i++)
+            for(int i=0;i<neurony.Length;i++)
             {
-                neurony[i] = new Neuron();
+                neurony[i] = new Neuron(w,i);
             }
-        }
-        public Neuron[] getNeurons()
-        {
-            return neurony;
-        }
-
-        public Neuron getNeuron(int n)
-        {
-            return neurony[n];
         }
 
     }
