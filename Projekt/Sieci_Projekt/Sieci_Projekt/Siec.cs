@@ -114,6 +114,21 @@ namespace Sieci_Projekt
             //Console.WriteLine("/n");
         }
 
+        public int getMax()
+        {
+            int max = 0; 
+            double pom = 0;
+            for (int i=0 ; i < warstwy[warstwy.Length-1].neurony.Length-2; i++)
+            {
+                if (warstwy[warstwy.Length - 1].neurony[i].output > pom)
+                {
+                    pom = warstwy[warstwy.Length - 1].neurony[i].output;
+                    max = i;
+                }
+            }
+
+            return max;
+        }
 
 
     }
