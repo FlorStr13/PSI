@@ -45,7 +45,7 @@ namespace Sieci_Projekt
 
             for (int i = 1; i < warstwy.Length; i++)
             {
-                int n = warstwy[i].neurony.Length;
+                int n = warstwy[i].neurony.Length-1;
                 Neuron[] poprzedniaWarstwa = warstwy[i - 1].neurony;
                 // petla po wszystkich neuronach w warstwie
                 for (int j = 0; j < n; j++)

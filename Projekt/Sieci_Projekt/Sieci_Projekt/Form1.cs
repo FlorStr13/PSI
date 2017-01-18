@@ -34,37 +34,87 @@ namespace Sieci_Projekt
               .Split(new[] { " ", "\r\n", "\n" }, StringSplitOptions.RemoveEmptyEntries)
               .Select(s => double.Parse(s, CultureInfo.GetCultureInfo("en-US"))).ToArray();
 
-            double[] data = new double[35];
-            double[] target = new double[26];
+            double[,] data = new double[26,35];
+            double[,] target = new double[26,26];
 
-            meNet.feed(data);
-            meNet.backProp(target);
-
-            for (int n = 0; n < 15000; n++) 
-            { 
-                for (int i = 0; i < doubles.Length; i += 26 + 35)
+           
+            
+                for (int i = 0,k=0; i < doubles.Length; i += 26 + 35,k++)
                 {
                     for (int j = 0; j < 35; j++)
                     {
-                        data[j] = Convert.ToDouble(doubles[i + j]);
+                        data[k,j] = Convert.ToDouble(doubles[i + j]);
                     }
                     for (int j = 0; j < 26; j++)
                     {
-                        target[j] = Convert.ToDouble(doubles[i + j + 35]);
+                        target[k,j] = Convert.ToDouble(doubles[i + j + 35]);
                     }
+                    
+                    
 
-                    meNet.feed(data);
-                    meNet.backProp(target);
+
                 }
-            }   
 
-            double[] test = {1 ,0, 0, 0, 1, 1, 0, 0, 0, 1, 1, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 1, 1, 0, 0, 0, 1, 1, 0, 0, 0, 1};
-            
-            meNet.feed(test);
-            meNet.feed(test);
-            int litera=meNet.getMax();
+                for (int i = 0; i < 5000; i++)
+                {
+                    double[] d = new double[35];
+                    double[] t = new double[26];
+                    for (int j = 0; j < 26; j++)
+                    {
 
-            meNet.GetType();
+                        t[j] = target[i%26, j];
+                    }
+                    for (int j = 0; j < 35; j++)
+                    {
+
+                        d[j] = data[i % 26, j];
+                    }
+                    meNet.feed(d);
+                    meNet.backProp(t);
+                }
+
+
+
+            Random rand = new Random();
+
+                for (int i = 0; i < 500000;i++ )
+                {
+
+                    int k = rand.Next(25);
+                    double[] d = new double[35];
+                    double[] t = new double[26];
+                    for (int j = 0; j < 26; j++)
+                    {
+
+                        t[j] = target[k, j];
+                    }
+                    for (int j = 0; j < 35; j++)
+                    {
+
+                        d[j] = data[k, j];
+                    }                    
+                    meNet.feed(d);
+                    meNet.backProp(t);
+                }
+
+                for (int i = 0; i < 2000; i++)
+                {
+                    double[] d = new double[35];
+                    double[] t = new double[26];
+                    for (int j = 0; j < 26; j++)
+                    {
+
+                        t[j] = target[i % 26, j];
+                    }
+                    for (int j = 0; j < 35; j++)
+                    {
+
+                        d[j] = data[i % 26, j];
+                    }
+                    meNet.feed(d);
+                    meNet.backProp(t);
+                }
+
         }
 
         private Graphics g;
@@ -118,7 +168,10 @@ namespace Sieci_Projekt
                 }
                 
             }
-            
+            for (int i = 0; i < 35; i++)
+            {
+                data[i] /=400 ;
+            }
             
             meNet.feed(data);
             litera.Text=((char) (meNet.getMax()+65)).ToString();

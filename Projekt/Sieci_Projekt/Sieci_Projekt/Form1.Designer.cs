@@ -42,7 +42,7 @@ namespace Sieci_Projekt
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(204, 12);
+            this.button1.Location = new System.Drawing.Point(204, 2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(139, 49);
             this.button1.TabIndex = 0;
@@ -72,7 +72,7 @@ namespace Sieci_Projekt
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(204, 67);
+            this.button2.Location = new System.Drawing.Point(204, 57);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(139, 51);
             this.button2.TabIndex = 2;
@@ -89,7 +89,7 @@ namespace Sieci_Projekt
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(204, 129);
+            this.button3.Location = new System.Drawing.Point(204, 114);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(139, 57);
             this.button3.TabIndex = 4;
